@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Andre Lamego Backend Java Developer">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="0.58" stop-color="#111827"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <path d="M0 520 C240 430 390 610 630 505 C850 408 965 440 1200 332 L1200 630 L0 630 Z" fill="#0f766e" opacity="0.16"/>
+  <path d="M140 115 H1060 V515 H140 Z" fill="#ffffff" opacity="0.035"/>
+  <path d="M140 115 H1060 V515 H140 Z" fill="none" stroke="#ffffff" stroke-opacity="0.16"/>
+  <circle cx="982" cy="136" r="8" fill="#22c55e"/>
+  <circle cx="1010" cy="136" r="8" fill="#38bdf8"/>
+  <circle cx="1038" cy="136" r="8" fill="#a78bfa"/>
+  <text x="170" y="225" fill="#e5e7eb" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="800">Andre Lamego</text>
+  <text x="174" y="282" fill="#93c5fd" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="3">BACKEND JAVA DEVELOPER</text>
+  <text x="174" y="355" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="28">Spring Boot - APIs REST - Clean Architecture - Kafka</text>
+  <g transform="translate(174 410)">
+    <rect width="210" height="48" rx="24" fill="url(#accent)" opacity="0.95"/>
+    <text x="105" y="31" text-anchor="middle" fill="#020617" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">LAMEGO OS</text>
+  </g>
+  <text x="880" y="465" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="900">AL</text>
+</svg>

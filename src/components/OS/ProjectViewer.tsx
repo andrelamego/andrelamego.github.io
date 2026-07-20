@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { projectLabels, type ProjectData } from '../../data/projectsData';
-import { ExternalLink, GitBranch, Layers, Target, Calendar, TrendingUp, TrendingDown, Minus, ChevronRight, ImageIcon } from 'lucide-react';
+import { ExternalLink, GitBranch, Layers, Target, Calendar, TrendingUp, TrendingDown, Minus, ChevronRight, ImageIcon, CheckCircle2, BookOpen, Code2 } from 'lucide-react';
 import { useLanguage } from '../../contexts/language';
 
 const TrendIcon: React.FC<{ trend?: 'up' | 'down' | 'neutral' }> = ({ trend }) => {
@@ -102,6 +102,26 @@ export const ProjectViewer: React.FC<{ project: ProjectData }> = ({ project }) =
             ))}
           </div>
         </div>
+
+        {project.proofLinks && project.proofLinks.length > 0 && (
+          <div className="mt-6">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/30 mb-3">{labels.resources}</h3>
+            <div className="flex flex-col gap-2">
+              {project.proofLinks.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between gap-3 rounded-xl border border-black/[0.06] bg-black/[0.03] p-3 text-xs font-semibold text-black/60 transition-colors hover:bg-black/[0.06] hover:text-black dark:border-white/[0.06] dark:bg-white/[0.04] dark:text-white/55 dark:hover:bg-white/[0.08] dark:hover:text-white"
+                >
+                  <span className="truncate">{link.label}</span>
+                  <ExternalLink size={13} className="shrink-0" />
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </aside>
 
       {/* ───────── MAIN CONTENT ───────── */}
@@ -113,6 +133,65 @@ export const ProjectViewer: React.FC<{ project: ProjectData }> = ({ project }) =
             {project.longDescription}
           </p>
         </section>
+
+        <section className="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.06] shadow-sm">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+              <BookOpen size={14} className="text-emerald-600 dark:text-emerald-400" />
+            </div>
+            <h2 className="text-sm font-bold uppercase tracking-wide">{labels.role}</h2>
+          </div>
+          <p className="text-xs text-black/60 dark:text-white/50 leading-relaxed">{project.role}</p>
+        </section>
+
+        <section className="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.06] shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+              <CheckCircle2 size={14} className="text-emerald-600 dark:text-emerald-400" />
+            </div>
+            <h2 className="text-sm font-bold uppercase tracking-wide">{labels.highlights}</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {project.highlights.map((highlight) => (
+              <div key={highlight} className="flex items-start gap-3 rounded-xl border border-black/[0.05] bg-black/[0.03] p-3 dark:border-white/[0.06] dark:bg-white/[0.04]">
+                <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                <p className="text-xs leading-relaxed text-black/60 dark:text-white/50">{highlight}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {(project.installSnippet || project.usageSnippet) && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {project.installSnippet && (
+              <section className="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.06] shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                    <Code2 size={14} className="text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h2 className="text-sm font-bold uppercase tracking-wide">{labels.install}</h2>
+                </div>
+                <pre className="overflow-x-auto rounded-xl bg-black/[0.04] p-4 text-[11px] leading-relaxed text-black/70 dark:bg-black/40 dark:text-white/65">
+                  <code>{project.installSnippet}</code>
+                </pre>
+              </section>
+            )}
+
+            {project.usageSnippet && (
+              <section className="p-5 rounded-2xl bg-white/60 dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.06] shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
+                    <Code2 size={14} className="text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <h2 className="text-sm font-bold uppercase tracking-wide">{labels.usage}</h2>
+                </div>
+                <pre className="overflow-x-auto rounded-xl bg-black/[0.04] p-4 text-[11px] leading-relaxed text-black/70 dark:bg-black/40 dark:text-white/65">
+                  <code>{project.usageSnippet}</code>
+                </pre>
+              </section>
+            )}
+          </div>
+        )}
 
         {/* Architecture & Challenges — side by side on large screens */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

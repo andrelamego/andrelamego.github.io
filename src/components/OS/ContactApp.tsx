@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { Send, Mail, MapPin, Phone } from 'lucide-react';
+import { Send, Mail, MapPin, Phone, Copy, Check, GitBranch, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../../contexts/language';
+
+const EMAIL = 'andreolamego@gmail.com';
+const PHONE = '+55 11 98732-6102';
+const LINKEDIN = 'https://www.linkedin.com/in/andre-oliveira-lamego/';
+const GITHUB = 'https://github.com/andrelamego';
 
 export function ContactApp() {
   const { language } = useLanguage();
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [copied, setCopied] = useState<'email' | 'phone' | null>(null);
   const text = language === 'pt'
     ? {
         title: 'Vamos conversar?',
@@ -22,6 +28,11 @@ export function ContactApp() {
         send: 'Enviar Mensagem',
         sending: 'Enviando...',
         sent: 'Mensagem Enviada!',
+        copyEmail: 'Copiar email',
+        copyPhone: 'Copiar telefone',
+        copied: 'Copiado',
+        linkedin: 'LinkedIn',
+        github: 'GitHub',
       }
     : {
         title: 'Let’s talk?',
@@ -39,7 +50,22 @@ export function ContactApp() {
         send: 'Send Message',
         sending: 'Opening email...',
         sent: 'Email Opened!',
+        copyEmail: 'Copy email',
+        copyPhone: 'Copy phone',
+        copied: 'Copied',
+        linkedin: 'LinkedIn',
+        github: 'GitHub',
       };
+
+  const copyToClipboard = async (value: string, type: 'email' | 'phone') => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(type);
+      setTimeout(() => setCopied(null), 2000);
+    } catch {
+      setCopied(null);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +78,7 @@ export function ContactApp() {
     const body = encodeURIComponent(`${message}\n\nNome: ${name}\nEmail: ${email}`);
 
     setStatus('sending');
-    window.location.href = `mailto:andreolamego@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
     setStatus('sent');
     setTimeout(() => setStatus('idle'), 3000);
   };
@@ -73,20 +99,38 @@ export function ContactApp() {
             <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
               <Mail size={18} />
             </div>
-            <div>
+            <div className="min-w-0 flex-1">
               <p className="text-xs text-black/40 dark:text-white/40">{text.email}</p>
-              <p className="text-sm">andreolamego@gmail.com</p>
+              <p className="truncate text-sm">{EMAIL}</p>
             </div>
+            <button
+              type="button"
+              onClick={() => copyToClipboard(EMAIL, 'email')}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black/55 transition-colors hover:bg-black/10 hover:text-black dark:border-white/10 dark:bg-white/5 dark:text-white/55 dark:hover:bg-white/10 dark:hover:text-white"
+              aria-label={text.copyEmail}
+              title={copied === 'email' ? text.copied : text.copyEmail}
+            >
+              {copied === 'email' ? <Check size={16} /> : <Copy size={16} />}
+            </button>
           </div>
           
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center text-blue-600 dark:text-blue-400">
               <Phone size={18} />
             </div>
-            <div>
+            <div className="min-w-0 flex-1">
               <p className="text-xs text-black/40 dark:text-white/40">{text.phone}</p>
-              <p className="text-sm">+55 11 98732-6102</p>
+              <p className="truncate text-sm">{PHONE}</p>
             </div>
+            <button
+              type="button"
+              onClick={() => copyToClipboard(PHONE, 'phone')}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black/55 transition-colors hover:bg-black/10 hover:text-black dark:border-white/10 dark:bg-white/5 dark:text-white/55 dark:hover:bg-white/10 dark:hover:text-white"
+              aria-label={text.copyPhone}
+              title={copied === 'phone' ? text.copied : text.copyPhone}
+            >
+              {copied === 'phone' ? <Check size={16} /> : <Copy size={16} />}
+            </button>
           </div>
 
           <div className="flex items-center gap-4">
@@ -98,6 +142,29 @@ export function ContactApp() {
               <p className="text-sm">São Paulo, SP</p>
             </div>
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a
+            href={LINKEDIN}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-black text-sm font-semibold text-white px-4 py-3 transition-opacity hover:opacity-85 dark:border-white/10 dark:bg-white dark:text-black"
+          >
+            <ExternalLink size={16} />
+            {text.linkedin}
+            <ExternalLink size={13} />
+          </a>
+          <a
+            href={GITHUB}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-black/5 text-sm font-semibold text-black/75 px-4 py-3 transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white/75 dark:hover:bg-white/10"
+          >
+            <GitBranch size={16} />
+            {text.github}
+            <ExternalLink size={13} />
+          </a>
         </div>
       </div>
 
