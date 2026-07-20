@@ -1,6 +1,6 @@
 import React from 'react';
 import { getProjectsData, projectLabels } from '../../data/projectsData';
-import { Folder, ExternalLink } from 'lucide-react';
+import { Award, Code2, Folder, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../../contexts/language';
 
 export const ProjectsApp: React.FC = () => {
@@ -10,6 +10,11 @@ export const ProjectsApp: React.FC = () => {
 
   const openProject = (id: string) => {
     window.dispatchEvent(new CustomEvent('open-os-window', { detail: `project-${id}` }));
+  };
+
+  const getProjectIcon = (icon: 'muttley' | 'validator') => {
+    if (icon === 'validator') return <Code2 size={24} className="text-emerald-600 dark:text-emerald-400" />;
+    return <Award size={24} className="text-amber-600 dark:text-amber-400" />;
   };
 
   return (
@@ -28,8 +33,8 @@ export const ProjectsApp: React.FC = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-black/5 dark:from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             
-            <div className="w-12 h-12 rounded-xl bg-black/10 dark:bg-white/10 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-inner border border-black/10 dark:border-white/10">
-              {project.icon}
+            <div className="w-12 h-12 rounded-xl bg-black/10 dark:bg-white/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner border border-black/10 dark:border-white/10">
+              {getProjectIcon(project.icon)}
             </div>
             
             <h3 className="text-xl font-bold mb-2 text-black/90 dark:text-white/90 group-hover:text-black dark:group-hover:text-white transition-colors">

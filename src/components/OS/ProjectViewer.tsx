@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { projectLabels, type ProjectData } from '../../data/projectsData';
-import { ExternalLink, GitBranch, Layers, Target, Calendar, TrendingUp, TrendingDown, Minus, ChevronRight, ImageIcon, CheckCircle2, BookOpen, Code2 } from 'lucide-react';
+import { ExternalLink, GitBranch, Layers, Target, Calendar, TrendingUp, TrendingDown, Minus, ChevronRight, ImageIcon, CheckCircle2, BookOpen, Code2, Award } from 'lucide-react';
 import { useLanguage } from '../../contexts/language';
 
 const TrendIcon: React.FC<{ trend?: 'up' | 'down' | 'neutral' }> = ({ trend }) => {
@@ -13,6 +13,9 @@ export const ProjectViewer: React.FC<{ project: ProjectData }> = ({ project }) =
   const { language } = useLanguage();
   const labels = projectLabels[language];
   const [selectedImg, setSelectedImg] = useState<number | null>(null);
+  const projectIcon = project.icon === 'validator'
+    ? <Code2 size={24} className="text-emerald-600 dark:text-emerald-400" />
+    : <Award size={24} className="text-amber-600 dark:text-amber-400" />;
 
   return (
     <div className="h-full w-full flex flex-col lg:flex-row bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0c0c0e] dark:to-[#111114] text-black dark:text-white overflow-hidden">
@@ -21,8 +24,8 @@ export const ProjectViewer: React.FC<{ project: ProjectData }> = ({ project }) =
       <aside className="w-full lg:w-72 xl:w-80 flex-shrink-0 border-b lg:border-b-0 lg:border-r border-black/10 dark:border-white/[0.06] p-6 overflow-y-auto custom-scrollbar bg-white/50 dark:bg-white/[0.02]">
         {/* Project Identity */}
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center text-2xl shadow-lg">
-            {project.icon}
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center shadow-lg">
+            {projectIcon}
           </div>
           <div className="min-w-0">
             <h1 className="text-lg font-bold leading-tight truncate">{project.name}</h1>

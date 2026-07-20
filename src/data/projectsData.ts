@@ -22,7 +22,7 @@ export interface ProjectData {
   name: string;
   shortDescription: string;
   longDescription: string;
-  icon: string;
+  icon: 'muttley' | 'validator';
   screenshots: string[];
   techStack: string[];
   architecture: string;
@@ -81,7 +81,7 @@ export const projectsByLanguage = {
       name: 'Projeto Muttley',
       shortDescription: 'Gerenciamento de eventos e certificados acadêmicos em desenvolvimento.',
       longDescription: 'Plataforma em desenvolvimento para gerenciamento de eventos acadêmicos, participantes, certificados digitais e atribuição de medalhas. O backend segue Clean Architecture, comunicação orientada a eventos e está atualmente na etapa de execução dos testes.',
-      icon: '🏅',
+      icon: 'muttley',
       screenshots: [
         '/screenshots/muttley/dashboard.jpg',
         '/screenshots/muttley/certificados.jpg',
@@ -123,7 +123,7 @@ export const projectsByLanguage = {
       name: 'BR Validator',
       shortDescription: 'Biblioteca Spring Boot para validação nativa de dados brasileiros.',
       longDescription: 'Starter customizado para Spring Boot que fornece anotações simplificadas para Bean Validation de documentos e dados nacionais, como CPF, CNPJ, e-mail e senha. Publicado no Maven Central para reutilização em projetos Java.',
-      icon: '✅',
+      icon: 'validator',
       screenshots: [
         '/screenshots/br-validator/document-request-basics.png',
         '/screenshots/br-validator/email-password-rules.png',
@@ -166,7 +166,7 @@ export const projectsByLanguage = {
       name: 'Muttley Project',
       shortDescription: 'Academic event and certificate management currently in development.',
       longDescription: 'Platform in development for managing academic events, participants, digital certificates and medal assignment. The backend follows Clean Architecture, event-driven communication and is currently in the test execution stage.',
-      icon: '🏅',
+      icon: 'muttley',
       screenshots: [
         '/screenshots/muttley/dashboard.jpg',
         '/screenshots/muttley/certificados.jpg',
@@ -208,7 +208,7 @@ export const projectsByLanguage = {
       name: 'BR Validator',
       shortDescription: 'Spring Boot library for native validation of Brazilian data.',
       longDescription: 'Custom Spring Boot starter that provides simple Bean Validation annotations for Brazilian documents and data, such as CPF, CNPJ, email and password. Published on Maven Central for reuse in Java projects.',
-      icon: '✅',
+      icon: 'validator',
       screenshots: [
         '/screenshots/br-validator/document-request-basics.png',
         '/screenshots/br-validator/email-password-rules.png',
