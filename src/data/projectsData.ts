@@ -91,7 +91,9 @@ export const projectsByLanguage = {
       longDescription: 'Starter customizado para Spring Boot que fornece anotações simplificadas para Bean Validation de documentos e dados nacionais, como CPF, CNPJ, e-mail e senha. Publicado no Maven Central para reutilização em projetos Java.',
       icon: '✅',
       screenshots: [
-        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop',
+        '/screenshots/br-validator/document-request-basics.png',
+        '/screenshots/br-validator/email-password-rules.png',
+        '/screenshots/br-validator/cep-phone-birthdate.png',
       ],
       techStack: ['Java', 'Spring Boot', 'Bean Validation', 'Maven Central', 'JSR-380'],
       architecture: 'Componente plugável construído sobre os adaptadores e validadores da especificação Bean Validation, empacotado como um Spring Boot AutoConfiguration Starter de baixo acoplamento.',
@@ -146,7 +148,9 @@ export const projectsByLanguage = {
       longDescription: 'Custom Spring Boot starter that provides simple Bean Validation annotations for Brazilian documents and data, such as CPF, CNPJ, email and password. Published on Maven Central for reuse in Java projects.',
       icon: '✅',
       screenshots: [
-        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop',
+        '/screenshots/br-validator/document-request-basics.png',
+        '/screenshots/br-validator/email-password-rules.png',
+        '/screenshots/br-validator/cep-phone-birthdate.png',
       ],
       techStack: ['Java', 'Spring Boot', 'Bean Validation', 'Maven Central', 'JSR-380'],
       architecture: 'Pluggable component built on top of Bean Validation adapters and validators, packaged as a low-coupling Spring Boot AutoConfiguration Starter.',

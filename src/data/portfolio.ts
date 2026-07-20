@@ -92,7 +92,11 @@ export const portfolioByLanguage = {
         link: 'https://github.com/andrelamego/br-validator',
         tags: ['Java', 'Spring Boot', 'Bean Validation', 'Maven Central'],
         gradient: 'from-emerald-500/20 to-transparent',
-        screenshots: [],
+        screenshots: [
+          '/screenshots/br-validator/document-request-basics.png',
+          '/screenshots/br-validator/email-password-rules.png',
+          '/screenshots/br-validator/cep-phone-birthdate.png',
+        ],
       },
     ],
     education: {
@@ -229,7 +233,11 @@ export const portfolioByLanguage = {
         link: 'https://github.com/andrelamego/br-validator',
         tags: ['Java', 'Spring Boot', 'Bean Validation', 'Maven Central'],
         gradient: 'from-emerald-500/20 to-transparent',
-        screenshots: [],
+        screenshots: [
+          '/screenshots/br-validator/document-request-basics.png',
+          '/screenshots/br-validator/email-password-rules.png',
+          '/screenshots/br-validator/cep-phone-birthdate.png',
+        ],
       },
     ],
     education: {
