@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Terminal, User, Briefcase, Mail, Settings, Apple, Wifi, Battery, Languages } from 'lucide-react';
+import { Terminal, User, Briefcase, Mail, Settings, Apple, Wifi, Battery, Languages, MousePointerClick, Keyboard, FileText, X } from 'lucide-react';
 import { Window } from './components/OS/Window';
 import { DesktopIcon } from './components/OS/DesktopIcon';
 import { useTheme, type OSTheme } from './contexts/theme';
@@ -30,6 +30,15 @@ type AppWindow = {
   content: React.ReactNode;
   defaultPosition?: { x: number; y: number };
   defaultSize?: { width: number; height: number };
+};
+
+type WelcomeText = {
+  title: string;
+  intro: string;
+  tips: string[];
+  primary: string;
+  secondary: string;
+  close: string;
 };
 
 const Win7StartOrb = () => (
@@ -121,6 +130,74 @@ const themeConfig: Record<OSTheme | 'iOS', ThemeConfigEntry> = {
   }
 };
 
+const WelcomeOverlay = ({
+  text,
+  onClose,
+  onOpenPortfolio,
+  onOpenTerminal,
+}: {
+  text: WelcomeText;
+  onClose: () => void;
+  onOpenPortfolio: () => void;
+  onOpenTerminal: () => void;
+}) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="absolute inset-0 z-[200] flex items-center justify-center bg-black/45 px-4 backdrop-blur-sm"
+  >
+    <motion.div
+      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 16, scale: 0.98 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+      className="w-full max-w-xl overflow-hidden rounded-2xl border border-white/20 bg-white/85 text-black shadow-2xl backdrop-blur-2xl dark:bg-[#111114]/90 dark:text-white"
+    >
+      <div className="flex items-start justify-between gap-4 border-b border-black/10 p-6 dark:border-white/10">
+        <div>
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-black/40 dark:text-white/35">Lamego OS</p>
+          <h2 className="text-2xl font-bold tracking-tight">{text.title}</h2>
+          <p className="mt-3 text-sm leading-relaxed text-black/60 dark:text-white/55">{text.intro}</p>
+        </div>
+        <button
+          onClick={onClose}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black/55 transition-colors hover:bg-black/10 hover:text-black dark:border-white/10 dark:bg-white/5 dark:text-white/55 dark:hover:bg-white/10 dark:hover:text-white"
+          aria-label={text.close}
+        >
+          <X size={17} />
+        </button>
+      </div>
+
+      <div className="grid gap-3 p-6">
+        {[MousePointerClick, Keyboard, Languages, FileText].map((Icon, index) => (
+          <div key={text.tips[index]} className="flex items-start gap-3 rounded-xl border border-black/10 bg-black/[0.03] p-4 dark:border-white/10 dark:bg-white/[0.04]">
+            <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-black/5 text-black/60 dark:bg-white/10 dark:text-white/65">
+              <Icon size={16} />
+            </div>
+            <p className="text-sm leading-relaxed text-black/65 dark:text-white/60">{text.tips[index]}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex flex-col gap-3 border-t border-black/10 p-6 dark:border-white/10 sm:flex-row">
+        <button
+          onClick={onOpenPortfolio}
+          className="flex-1 rounded-xl bg-black px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-85 dark:bg-white dark:text-black"
+        >
+          {text.primary}
+        </button>
+        <button
+          onClick={onOpenTerminal}
+          className="flex-1 rounded-xl border border-black/10 bg-black/5 px-5 py-3 text-sm font-semibold text-black/75 transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white/75 dark:hover:bg-white/10"
+        >
+          {text.secondary}
+        </button>
+      </div>
+    </motion.div>
+  </motion.div>
+);
+
 function App() {
   const { theme } = useTheme();
   const { language, toggleLanguage } = useLanguage();
@@ -149,6 +226,19 @@ function App() {
         edit: 'Editar',
         view: 'Visualizar',
         languageLabel: 'English version',
+        welcome: {
+          title: 'Bem-vindo ao Lamego OS',
+          intro: 'Esta interface funciona como um pequeno sistema operacional para explorar currículo, projetos e contato de forma rápida.',
+          tips: [
+            'Clique uma vez nos ícones do desktop, dock ou menu iniciar para abrir as janelas.',
+            'Use o Terminal CV para consultar comandos como about, projects, cv, contact, languages, stack backend e whyhire.',
+            'O seletor PT/EN troca o conteúdo principal entre português e inglês.',
+            'Os cards de projetos abrem janelas internas com detalhes técnicos; os links de repositório ficam dentro dessas janelas.',
+          ],
+          primary: 'Abrir Sobre Mim',
+          secondary: 'Abrir Terminal CV',
+          close: 'Fechar boas-vindas',
+        },
       }
     : {
         portfolio: 'About Me',
@@ -163,6 +253,19 @@ function App() {
         edit: 'Edit',
         view: 'View',
         languageLabel: 'Versão em português',
+        welcome: {
+          title: 'Welcome to Lamego OS',
+          intro: 'This interface works like a small operating system for quickly exploring my resume, projects and contact information.',
+          tips: [
+            'Click desktop, dock or start-menu icons once to open windows.',
+            'Use the CV Terminal to run commands like about, projects, cv, contact, languages, stack backend and whyhire.',
+            'The PT/EN control switches the main content between Portuguese and English.',
+            'Project cards open internal detail windows; repository links are available inside those windows.',
+          ],
+          primary: 'Open About Me',
+          secondary: 'Open CV Terminal',
+          close: 'Close welcome',
+        },
       }, [language]);
 
   const getWindowConfig = useCallback((id: string): AppWindow | null => {
@@ -186,38 +289,14 @@ function App() {
     return null;
   }, [appText, language]);
 
-  const [openWindows, setOpenWindows] = useState<AppWindow[]>(() => {
-    const saved = localStorage.getItem('lamego-os-windows');
-    if (saved) {
-      try {
-        const ids = JSON.parse(saved) as string[];
-        return ids.map(getWindowConfig).filter(Boolean) as AppWindow[];
-      } catch {
-        return [];
-      }
-    }
-    const portfolio = getWindowConfig('portfolio');
-    return portfolio ? [portfolio] : [];
-  });
-
-  const [activeWindowId, setActiveWindowId] = useState<string | null>(() => {
-    return localStorage.getItem('lamego-os-active') || null;
-  });
+  const [openWindows, setOpenWindows] = useState<AppWindow[]>([]);
+  const [activeWindowId, setActiveWindowId] = useState<string | null>(null);
 
   const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
   const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    localStorage.setItem('lamego-os-windows', JSON.stringify(openWindows.map(w => w.id)));
-  }, [openWindows]);
-
-  useEffect(() => {
-    if (activeWindowId) {
-      localStorage.setItem('lamego-os-active', activeWindowId);
-    } else {
-      localStorage.removeItem('lamego-os-active');
-    }
-  }, [activeWindowId]);
+  const [showWelcome, setShowWelcome] = useState(() => {
+    return sessionStorage.getItem('lamego-os-welcome-shown') !== 'true';
+  });
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 60_000);
@@ -243,6 +322,19 @@ function App() {
   const focusWindow = useCallback((id: string) => {
     setActiveWindowId(id);
   }, []);
+
+  const closeWelcome = useCallback(() => {
+    sessionStorage.setItem('lamego-os-welcome-shown', 'true');
+    setShowWelcome(false);
+  }, []);
+
+  const openFromWelcome = useCallback((id: string) => {
+    const config = getWindowConfig(id);
+    if (config) {
+      openWindow(config);
+    }
+    closeWelcome();
+  }, [closeWelcome, getWindowConfig, openWindow]);
 
   useEffect(() => {
     const handleOpenWindow = (e: Event) => {
@@ -276,6 +368,17 @@ function App() {
     <div className={`w-screen h-screen overflow-hidden ${currentTheme.wallpaper} bg-cover bg-center transition-all duration-500`} autoFocus>
       {/* Dark overlay for better icon visibility */}
       <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]" />
+
+      <AnimatePresence>
+        {showWelcome && (
+          <WelcomeOverlay
+            text={appText.welcome}
+            onClose={closeWelcome}
+            onOpenPortfolio={() => openFromWelcome('portfolio')}
+            onOpenTerminal={() => openFromWelcome('terminal')}
+          />
+        )}
+      </AnimatePresence>
 
       {/* iOS Status Bar */}
       {currentTheme.isIOS && (
