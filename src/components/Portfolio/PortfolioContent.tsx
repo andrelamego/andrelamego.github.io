@@ -64,14 +64,14 @@ export function PortfolioContent() {
   // Evolução visual: Cores mudando conforme o scroll avança na história
   const blob1Color = useTransform(
     springScroll, 
-    [0, 0.25, 0.5, 0.75, 0.95], 
-    ["rgba(147, 51, 234, 0.1)", portfolioData.trajectory[0].color, portfolioData.trajectory[1].color, portfolioData.trajectory[2].color, portfolioData.trajectory[3].color]
+    [0, 0.2, 0.4, 0.6, 0.8, 0.98], 
+    ["rgba(147, 51, 234, 0.1)", portfolioData.trajectory[0].color, portfolioData.trajectory[1].color, portfolioData.trajectory[2].color, portfolioData.trajectory[3].color, portfolioData.trajectory[4].color]
   );
   
   const blob2Color = useTransform(
     springScroll, 
-    [0, 0.25, 0.5, 0.75, 0.95], 
-    ["rgba(37, 99, 235, 0.1)", "rgba(107, 114, 128, 0.1)", portfolioData.trajectory[0].color, portfolioData.trajectory[1].color, portfolioData.trajectory[2].color]
+    [0, 0.2, 0.4, 0.6, 0.8, 0.98], 
+    ["rgba(37, 99, 235, 0.1)", "rgba(107, 114, 128, 0.1)", portfolioData.trajectory[0].color, portfolioData.trajectory[1].color, portfolioData.trajectory[2].color, portfolioData.trajectory[3].color]
   );
 
   return (

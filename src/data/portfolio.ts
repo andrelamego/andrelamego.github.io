@@ -105,6 +105,14 @@ export const portfolioByLanguage = {
     ],
     trajectory: [
       {
+        id: 'first-contact',
+        year: 'Primeiros estudos',
+        title: 'Fundamentos de Programação',
+        description: 'Primeiro contato prático com lógica de programação, resolução de problemas e entendimento de como sistemas são construídos. Esse período criou a base para evoluir de curiosidade técnica para estudo estruturado.',
+        codeSnippet: 'const fundamentals = [\n  "logic",\n  "problem-solving",\n  "systems-thinking"\n];\n\nfundamentals.forEach(study);',
+        color: 'rgba(107, 114, 128, 0.15)',
+      },
+      {
         id: 'fatec',
         year: '2024 - 2028',
         title: 'Entrada na FATEC',
@@ -233,6 +241,14 @@ export const portfolioByLanguage = {
       'Java', 'Spring Boot', 'REST APIs', 'Clean Architecture', 'Layered Architecture', 'PostgreSQL', 'MongoDB', 'SQL Server', 'MySQL', 'Apache Kafka', 'Hibernate', 'Spring Data JPA', 'JDBC', 'JUnit', 'Mockito', 'Playwright', 'Docker', 'Git', 'GitHub', 'Linux', 'Scrum', 'SOLID', 'Python', 'JavaScript', 'React', 'Advanced English', 'Basic Spanish',
     ],
     trajectory: [
+      {
+        id: 'first-contact',
+        year: 'Early learning',
+        title: 'Programming Fundamentals',
+        description: 'First hands-on contact with programming logic, problem solving and understanding how systems are built. This stage turned technical curiosity into structured learning.',
+        codeSnippet: 'const fundamentals = [\n  "logic",\n  "problem-solving",\n  "systems-thinking"\n];\n\nfundamentals.forEach(study);',
+        color: 'rgba(107, 114, 128, 0.15)',
+      },
       {
         id: 'fatec',
         year: '2024 - 2028',
