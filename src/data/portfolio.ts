@@ -106,9 +106,9 @@ export const portfolioByLanguage = {
     trajectory: [
       {
         id: 'first-contact',
-        year: 'Primeiros estudos',
+        year: 'Início técnico',
         title: 'Fundamentos de Programação',
-        description: 'Primeiro contato prático com lógica de programação, resolução de problemas e entendimento de como sistemas são construídos. Esse período criou a base para evoluir de curiosidade técnica para estudo estruturado.',
+        description: 'Comecei aos 13 anos com o primeiro contato prático com lógica de programação, resolução de problemas e entendimento de como sistemas são construídos. Esse período criou a base para evoluir de curiosidade técnica para estudo estruturado.',
         codeSnippet: 'const fundamentals = [\n  "logic",\n  "problem-solving",\n  "systems-thinking"\n];\n\nfundamentals.forEach(study);',
         color: 'rgba(107, 114, 128, 0.15)',
       },
@@ -243,9 +243,9 @@ export const portfolioByLanguage = {
     trajectory: [
       {
         id: 'first-contact',
-        year: 'Early learning',
+        year: 'Technical start',
         title: 'Programming Fundamentals',
-        description: 'First hands-on contact with programming logic, problem solving and understanding how systems are built. This stage turned technical curiosity into structured learning.',
+        description: 'I started at 13 with my first hands-on contact with programming logic, problem solving and understanding how systems are built. This stage turned technical curiosity into structured learning.',
         codeSnippet: 'const fundamentals = [\n  "logic",\n  "problem-solving",\n  "systems-thinking"\n];\n\nfundamentals.forEach(study);',
         color: 'rgba(107, 114, 128, 0.15)',
       },

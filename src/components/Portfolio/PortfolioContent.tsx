@@ -366,15 +366,14 @@ export function PortfolioContent() {
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               {portfolioData.projects.map((project, index) => (
-                <motion.a 
+                <motion.button
                   key={project.id}
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-os-window', { detail: `project-${project.id}` }))}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="glass rounded-[2rem] flex flex-col group overflow-hidden relative cursor-pointer border-white/5 hover:border-white/20 transition-all duration-500 md:col-span-6"
+                  className="glass rounded-[2rem] flex flex-col group overflow-hidden relative cursor-pointer border-white/5 hover:border-white/20 transition-all duration-500 md:col-span-6 text-left"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-20 transition-opacity duration-700`} />
                   
@@ -422,7 +421,7 @@ export function PortfolioContent() {
                       </div>
                     </div>
                   </div>
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </section>
