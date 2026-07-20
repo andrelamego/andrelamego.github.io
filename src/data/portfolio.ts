@@ -12,8 +12,8 @@ export const portfolioByLanguage = {
   pt: {
     hero: {
       name: 'André Lamego',
-      subtitle: 'Desenvolvedor Backend Java especialista em APIs REST, Clean Architecture e mensageria com Spring Boot e Kafka.',
-      kicker: 'Software Engineer • Java Specialist',
+      subtitle: 'Desenvolvedor Backend Java com foco em APIs REST, Clean Architecture e mensageria com Spring Boot e Kafka.',
+      kicker: 'Desenvolvedor Backend Java',
       availability: 'Aberto a oportunidades como Desenvolvedor Backend Java Júnior/Estágio, remoto, híbrido ou São Paulo.',
       technicalPitch: 'Desenvolvedor Backend Java em formação, focado em APIs REST com Spring Boot, Clean Architecture, bancos SQL/NoSQL e mensageria com Kafka.',
       links: sharedLinks,
@@ -154,7 +154,7 @@ export const portfolioByLanguage = {
     hero: {
       name: 'André Lamego',
       subtitle: 'Backend Java developer focused on REST APIs, Clean Architecture, Spring Boot and Kafka-based messaging.',
-      kicker: 'Software Engineer • Java Specialist',
+      kicker: 'Backend Java Developer',
       availability: 'Open to Junior Backend Java Developer and internship opportunities, remote, hybrid or based in São Paulo.',
       technicalPitch: 'Backend Java developer in training, focused on REST APIs with Spring Boot, Clean Architecture, SQL/NoSQL databases and Kafka messaging.',
       links: sharedLinks,
