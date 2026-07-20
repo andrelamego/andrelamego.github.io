@@ -1,6 +1,8 @@
 # André Lamego Portfolio
 
-Portfolio interativo de André Lamego, desenvolvido com React, TypeScript e Vite. A proposta visual simula um sistema operacional para apresentar currículo, projetos, contato e preferências de idioma de forma memorável, sem esconder as informações que recrutadores precisam encontrar rápido.
+Portfolio interativo de André Lamego. A proposta visual simula um sistema operacional para apresentar currículo, projetos, contato e preferências de idioma de forma memorável, sem esconder as informações que recrutadores precisam encontrar rápido.
+
+O projeto combina narrativa pessoal, detalhes técnicos e uma interface explorável para destacar atuação em desenvolvimento backend Java, APIs REST, Clean Architecture, bancos SQL/NoSQL e mensageria com Apache Kafka.
 
 ## Destaques
 
@@ -12,62 +14,16 @@ Portfolio interativo de André Lamego, desenvolvido com React, TypeScript e Vite
 - Projetos em destaque com detalhes técnicos, stack, screenshots e links de repositório.
 - Formulário de contato via `mailto:` com email, telefone e localização.
 
-## Stack
+## Recursos
 
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Lenis
-- Lucide React
-
-## Como Rodar
-
-Instale as dependências:
-
-```bash
-npm install
-```
-
-Inicie o servidor de desenvolvimento:
-
-```bash
-npm run dev
-```
-
-Gere a build de produção:
-
-```bash
-npm run build
-```
-
-Rode a validação estática:
-
-```bash
-npm run lint
-```
-
-Pré-visualize a build:
-
-```bash
-npm run preview
-```
-
-## Estrutura
-
-```text
-public/
-  CV_Andre_Lamego.pdf
-  screenshots/
-src/
-  components/
-    OS/
-    Portfolio/
-  contexts/
-  data/
-  hooks/
-```
+- Sistema de janelas com gerenciamento de foco, fechamento, redimensionamento e maximização.
+- Temas visuais inspirados em macOS e Windows 7.
+- Modo claro/escuro integrado aos temas.
+- Experiência responsiva com comportamento adaptado para mobile.
+- Scroll narrativo na janela “Sobre Mim”, com animações e ambientação visual.
+- Fundo espacial animado para reforçar a identidade tecnológica do portfolio.
+- Conteúdo centralizado em arquivos de dados, facilitando manutenção dos textos em português e inglês.
+- Currículo em PDF disponível como asset público.
 
 ## Conteúdo
 
@@ -78,6 +34,10 @@ As informações públicas do site estão alinhadas ao currículo:
 - Formação em Análise e Desenvolvimento de Sistemas pela FATEC Zona Leste, 2024-2028.
 - Competências técnicas, idiomas, GitHub, LinkedIn, email e telefone.
 
-## Deploy
+## Experiência
 
-O projeto é uma aplicação Vite estática. Após `npm run build`, o conteúdo final fica em `dist/` e pode ser publicado em serviços como Vercel, Netlify, GitHub Pages ou qualquer hospedagem de arquivos estáticos.
+- A janela “Sobre Mim” apresenta trajetória, formação, disponibilidade e links principais.
+- A janela “Projetos” lista trabalhos em destaque e abre visualizações detalhadas.
+- O “Terminal CV” oferece uma navegação alternativa por comandos, incluindo currículo, contato, idiomas, stack backend e pitch rápido.
+- A janela “Contato” reúne email, telefone, localização e composição de mensagem via cliente de email.
+- O seletor PT/EN permite navegar pelo portfolio em português ou inglês.
