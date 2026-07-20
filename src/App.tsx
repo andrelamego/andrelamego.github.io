@@ -5,7 +5,7 @@ import { Window } from './components/OS/Window';
 import { DesktopIcon } from './components/OS/DesktopIcon';
 import { useTheme, type OSTheme } from './contexts/theme';
 import { useIsMobile } from './hooks/useIsMobile';
-import { useLanguage } from './contexts/language';
+import { useLanguage, type Language } from './contexts/language';
 import { getProjectsData } from './data/projectsData';
 
 // Lazy-loaded app components — each becomes its own chunk
@@ -132,11 +132,15 @@ const themeConfig: Record<OSTheme | 'iOS', ThemeConfigEntry> = {
 
 const WelcomeOverlay = ({
   text,
+  language,
+  onLanguageChange,
   onClose,
   onOpenPortfolio,
   onOpenTerminal,
 }: {
   text: WelcomeText;
+  language: Language;
+  onLanguageChange: (language: Language) => void;
   onClose: () => void;
   onOpenPortfolio: () => void;
   onOpenTerminal: () => void;
@@ -159,6 +163,23 @@ const WelcomeOverlay = ({
           <p className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-black/40 dark:text-white/35">Lamego OS</p>
           <h2 className="text-2xl font-bold tracking-tight">{text.title}</h2>
           <p className="mt-3 text-sm leading-relaxed text-black/60 dark:text-white/55">{text.intro}</p>
+          <div className="mt-5 inline-flex rounded-full border border-black/10 bg-black/5 p-1 dark:border-white/10 dark:bg-white/5">
+            {(['pt', 'en'] as const).map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => onLanguageChange(option)}
+                className={`rounded-full px-4 py-1.5 text-xs font-bold transition-colors ${
+                  language === option
+                    ? 'bg-black text-white dark:bg-white dark:text-black'
+                    : 'text-black/55 hover:text-black dark:text-white/55 dark:hover:text-white'
+                }`}
+                aria-pressed={language === option}
+              >
+                {option.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
         <button
           onClick={onClose}
@@ -200,7 +221,7 @@ const WelcomeOverlay = ({
 
 function App() {
   const { theme } = useTheme();
-  const { language, toggleLanguage } = useLanguage();
+  const { language, setLanguage, toggleLanguage } = useLanguage();
   const isMobile = useIsMobile();
   const [hasBooted, setHasBooted] = useState(() => {
     return sessionStorage.getItem('hasBooted') === 'true';
@@ -373,6 +394,8 @@ function App() {
         {showWelcome && (
           <WelcomeOverlay
             text={appText.welcome}
+            language={language}
+            onLanguageChange={setLanguage}
             onClose={closeWelcome}
             onOpenPortfolio={() => openFromWelcome('portfolio')}
             onOpenTerminal={() => openFromWelcome('terminal')}
