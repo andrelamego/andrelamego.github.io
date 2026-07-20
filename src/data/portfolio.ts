@@ -74,8 +74,8 @@ export const portfolioByLanguage = {
       {
         id: 'muttley',
         title: 'Projeto Muttley',
-        description: 'Plataforma para gerenciamento de eventos acadêmicos com backend em Spring Boot, Clean Architecture, persistência híbrida e mensageria com Kafka.',
-        link: 'https://github.com/Bielnegri/Backend-Muttley',
+        description: 'Plataforma em desenvolvimento para gerenciamento de eventos acadêmicos com Clean Architecture, certificados PDF sob demanda e microsserviços para e-mail, download e QR Code.',
+        link: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop',
         tags: ['Java', 'Spring Boot', 'Clean Architecture', 'PostgreSQL', 'MongoDB', 'Apache Kafka'],
         gradient: 'from-purple-500/20 to-transparent',
         screenshots: [
@@ -136,8 +136,8 @@ export const portfolioByLanguage = {
         id: 'muttley',
         year: 'Projeto destaque',
         title: 'Muttley',
-        description: 'Desenvolvimento de backend para gerenciamento de eventos acadêmicos, certificados digitais e medalhas, usando Clean Architecture, PostgreSQL, MongoDB e Apache Kafka para comunicação assíncrona.',
-        codeSnippet: '@Service\nclass CertificateService {\n  void issue(Event event) {\n    repository.save(event.certificate());\n    producer.publish(event.created());\n  }\n}',
+        description: 'Desenvolvimento de backend para eventos acadêmicos, certificados digitais e medalhas. A arquitetura evita salvar PDFs no banco: persistimos as informações do certificado e montamos o documento quando o download é solicitado.',
+        codeSnippet: '@Service\nclass CertificateDownloadService {\n  byte[] download(CertificateId id) {\n    var data = repository.findCertificateData(id);\n    return pdfWorker.render(data);\n  }\n}',
         color: 'rgba(16, 185, 129, 0.15)',
       },
       {
@@ -215,8 +215,8 @@ export const portfolioByLanguage = {
       {
         id: 'muttley',
         title: 'Muttley Project',
-        description: 'Academic event management platform with a Spring Boot backend, Clean Architecture, hybrid persistence and Kafka messaging.',
-        link: 'https://github.com/Bielnegri/Backend-Muttley',
+        description: 'Academic event management platform in development with Clean Architecture, on-demand certificate PDFs and microservices for email, download and QR Code generation.',
+        link: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop',
         tags: ['Java', 'Spring Boot', 'Clean Architecture', 'PostgreSQL', 'MongoDB', 'Apache Kafka'],
         gradient: 'from-purple-500/20 to-transparent',
         screenshots: [
@@ -277,8 +277,8 @@ export const portfolioByLanguage = {
         id: 'muttley',
         year: 'Featured project',
         title: 'Muttley',
-        description: 'Built backend features for academic event management, digital certificates and medals using Clean Architecture, PostgreSQL, MongoDB and Apache Kafka for asynchronous communication.',
-        codeSnippet: '@Service\nclass CertificateService {\n  void issue(Event event) {\n    repository.save(event.certificate());\n    producer.publish(event.created());\n  }\n}',
+        description: 'Backend development for academic events, digital certificates and medals. The architecture avoids storing PDFs in the database: certificate data is persisted and the document is rendered when a download is requested.',
+        codeSnippet: '@Service\nclass CertificateDownloadService {\n  byte[] download(CertificateId id) {\n    var data = repository.findCertificateData(id);\n    return pdfWorker.render(data);\n  }\n}',
         color: 'rgba(16, 185, 129, 0.15)',
       },
       {
