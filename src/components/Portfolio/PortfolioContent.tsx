@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Download, ExternalLink, GraduationCap, ArrowDown, ChevronRight, Code2, Terminal } from 'lucide-react';
+import { ArrowDown, BriefcaseBusiness, CheckCircle2, ChevronRight, Code2, Download, ExternalLink, GraduationCap, Languages, Terminal, Target } from 'lucide-react';
 import Lenis from 'lenis';
 import { UniverseBackground } from './UniverseBackground';
 import { getPortfolioData } from '../../data/portfolio';
@@ -171,8 +171,109 @@ export function PortfolioContent() {
             </motion.div>
           </section>
 
+          {/* 1.5 PROFESSIONAL SNAPSHOT */}
+          <section className="px-6 md:px-8 max-w-6xl mx-auto py-24 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-15%" }}
+              className="glass rounded-[2rem] border border-white/10 overflow-hidden"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr]">
+                <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/35 mb-5">{portfolioData.labels.technicalFocus}</p>
+                  <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+                    {portfolioData.hero.technicalPitch}
+                  </h2>
+                  <p className="text-white/50 text-base md:text-lg leading-relaxed mb-8">
+                    {portfolioData.hero.availability}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
+                    {portfolioData.quickLinks.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        download={link.download}
+                        target={link.href.startsWith('http') ? '_blank' : undefined}
+                        rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/75 hover:border-white/25 hover:bg-white/10 hover:text-white transition-colors"
+                      >
+                        {link.download ? <Download size={15} /> : <ExternalLink size={15} />}
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-8 md:p-10 bg-white/[0.02]">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-2xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center">
+                      <CheckCircle2 className="text-emerald-300" size={20} />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">{portfolioData.labels.whatIDeliver}</h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-3">
+                    {portfolioData.deliverables.map((item) => (
+                      <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4 text-sm leading-relaxed text-white/60">
+                        <ChevronRight size={16} className="mt-0.5 shrink-0 text-emerald-300/70" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-15%" }}
+                className="glass rounded-[2rem] border border-white/10 p-8"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-2xl bg-blue-400/10 border border-blue-400/20 flex items-center justify-center">
+                    <Target className="text-blue-300" size={20} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">{portfolioData.labels.opportunities}</h3>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {portfolioData.opportunities.map((item) => (
+                    <span key={item} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/65">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-15%" }}
+                className="glass rounded-[2rem] border border-white/10 p-8"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-2xl bg-violet-400/10 border border-violet-400/20 flex items-center justify-center">
+                    <Languages className="text-violet-300" size={20} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">{portfolioData.labels.languages}</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {portfolioData.languageSkills.map((item) => (
+                    <div key={item.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                      <p className="text-sm font-semibold text-white">{item.name}</p>
+                      <p className="text-sm text-white/45 mt-1">{item.level}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
           {/* 2. TRAJECTORY (SCROLLYTELLING) */}
-          <section className="px-8 max-w-5xl mx-auto py-32 relative">
+          <section className="px-8 max-w-5xl mx-auto py-24 relative">
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent hidden md:block" />
             
             <motion.h2 
@@ -349,17 +450,30 @@ export function PortfolioContent() {
                   <p className="text-white/30 text-sm mt-3">{portfolioData.education.period}</p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {portfolioData.skills.map((skill, i) => (
+                <div className="mb-12">
+                  <div className="flex items-center justify-center gap-3 text-white/70">
+                    <BriefcaseBusiness size={20} />
+                    <h4 className="text-lg font-bold text-white">{portfolioData.labels.skills}</h4>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {portfolioData.skillGroups.map((group, i) => (
                     <motion.div
-                      key={skill}
+                      key={group.title}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.05 }}
-                      className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] text-white/60 text-center hover:bg-white/5 hover:text-white hover:border-white/20 transition-all cursor-default flex items-center justify-center gap-2 group"
+                      transition={{ delay: i * 0.04 }}
+                      className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 hover:bg-white/[0.04] hover:border-white/15 transition-colors"
                     >
-                      <ChevronRight size={14} className="text-white/20 group-hover:text-white transition-colors" />
-                      {skill}
+                      <h5 className="text-white font-semibold mb-4">{group.title}</h5>
+                      <div className="flex flex-wrap gap-2">
+                        {group.items.map((skill) => (
+                          <span key={skill} className="rounded-full border border-white/[0.06] bg-white/[0.04] px-3 py-1.5 text-xs text-white/55">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </motion.div>
                   ))}
                 </div>
