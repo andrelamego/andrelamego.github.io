@@ -104,9 +104,7 @@ export const portfolioByLanguage = {
         link: 'https://github.com/andrelamego/nasa-data-explorer',
         tags: ['React', 'Vite', 'Tailwind CSS', 'Axios', 'NASA APIs', 'GitHub Pages'],
         gradient: 'from-sky-500/20 to-transparent',
-        screenshots: [
-          '/screenshots/nasa-data-explorer/space-bg.jpg',
-        ],
+        screenshots: [],
       },
     ],
     education: {
@@ -255,9 +253,7 @@ export const portfolioByLanguage = {
         link: 'https://github.com/andrelamego/nasa-data-explorer',
         tags: ['React', 'Vite', 'Tailwind CSS', 'Axios', 'NASA APIs', 'GitHub Pages'],
         gradient: 'from-sky-500/20 to-transparent',
-        screenshots: [
-          '/screenshots/nasa-data-explorer/space-bg.jpg',
-        ],
+        screenshots: [],
       },
     ],
     education: {

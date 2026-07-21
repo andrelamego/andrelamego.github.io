@@ -161,9 +161,7 @@ export const projectsByLanguage = {
       shortDescription: 'Frontend React para exploração de dados e imagens das APIs públicas da NASA.',
       longDescription: 'Aplicação web publicada no GitHub Pages que consome APIs da NASA para apresentar imagens astronômicas, fotos de rovers em Marte e galerias EPIC da Terra em uma interface responsiva com tema espacial.',
       icon: 'nasa',
-      screenshots: [
-        '/screenshots/nasa-data-explorer/space-bg.jpg',
-      ],
+      screenshots: [],
       techStack: ['React', 'Vite', 'Tailwind CSS', 'React Router DOM', 'Axios', 'Lucide React', 'NASA APIs', 'GitHub Pages'],
       architecture: 'Frontend em React organizado por páginas, componentes, hooks e serviços de API. A comunicação com APIs externas fica isolada em serviços dedicados para APOD, Mars Rover Photos, NASA Image and Video Library e EPIC, com uso de variáveis de ambiente para a chave da NASA.',
       challenges: 'Lidar com APIs externas, limites de requisição, endpoints indisponíveis e diferentes formatos de mídia, mantendo estados de carregamento, estados vazios, fallback de fonte de dados e navegação responsiva.',
@@ -280,9 +278,7 @@ export const projectsByLanguage = {
       shortDescription: 'React frontend for exploring public NASA API data and imagery.',
       longDescription: 'GitHub Pages-published web application that consumes NASA APIs to present astronomy images, Mars rover photos and EPIC Earth galleries through a responsive space-themed interface.',
       icon: 'nasa',
-      screenshots: [
-        '/screenshots/nasa-data-explorer/space-bg.jpg',
-      ],
+      screenshots: [],
       techStack: ['React', 'Vite', 'Tailwind CSS', 'React Router DOM', 'Axios', 'Lucide React', 'NASA APIs', 'GitHub Pages'],
       architecture: 'React frontend organized into pages, components, hooks and API services. External API communication is isolated in dedicated services for APOD, Mars Rover Photos, NASA Image and Video Library and EPIC, with environment variables for the NASA API key.',
       challenges: 'Handling external APIs, request limits, unavailable endpoints and different media formats while keeping loading states, empty states, data-source fallbacks and responsive navigation polished.',
