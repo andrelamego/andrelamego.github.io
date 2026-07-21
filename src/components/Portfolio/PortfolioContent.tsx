@@ -364,7 +364,7 @@ export function PortfolioContent() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {portfolioData.projects.map((project, index) => (
                 <motion.button
                   key={project.id}
@@ -373,52 +373,57 @@ export function PortfolioContent() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="glass rounded-[2rem] flex flex-col group overflow-hidden relative cursor-pointer border-white/5 hover:border-white/20 transition-all duration-500 md:col-span-6 text-left"
+                  className="glass group relative flex min-h-[520px] flex-col overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.025] text-left transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04] hover:shadow-2xl hover:shadow-black/20"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-20 transition-opacity duration-700`} />
-                  
-                  {/* Screenshot gallery for projects that have them */}
-                  {project.screenshots?.length > 0 && (
-                    <div className="relative z-10 px-6 pt-6">
-                      <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide snap-x snap-mandatory" onClick={(e) => e.stopPropagation()}>
-                        {project.screenshots.map((img, i) => (
-                          <div key={i} className="flex-shrink-0 snap-start rounded-xl overflow-hidden border border-white/10 bg-black/30 w-[260px] h-[160px] relative group/img">
-                            <img 
-                              src={img} 
-                              alt={`${project.title} screenshot ${i+1}`} 
-                              loading="lazy" 
-                              decoding="async" 
-                              className="w-full h-full object-cover opacity-70 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-500" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity" />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 transition-opacity duration-500 group-hover:opacity-25`} />
+
+                  <div className="relative z-10 p-5 pb-0">
+                    <div className="relative h-44 overflow-hidden rounded-lg border border-white/[0.08] bg-black/35">
+                      {project.screenshots?.[0] ? (
+                        <img
+                          src={project.screenshots[0]}
+                          alt={`${project.title} preview`}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-white/[0.03]">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05]">
+                            {project.id === 'br-validator' ? <Code2 className="text-emerald-400" size={30} /> : project.id === 'nasa-data-explorer' ? <Orbit className="text-sky-400" size={30} /> : <Terminal className="text-purple-400" size={30} />}
                           </div>
-                        ))}
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+                      <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-black/45 backdrop-blur-md">
+                        {project.id === 'br-validator' ? <Code2 className="text-emerald-400" size={20} /> : project.id === 'nasa-data-explorer' ? <Orbit className="text-sky-400" size={20} /> : <Terminal className="text-purple-400" size={20} />}
                       </div>
                     </div>
-                  )}
+                  </div>
 
-                  <div className="relative z-10 flex-1 flex flex-col p-8 md:p-12">
-                    <div className="flex justify-between items-start mb-auto">
-                      <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                        {project.id === 'br-validator' ? <Code2 className="text-emerald-400" /> : project.id === 'nasa-data-explorer' ? <Orbit className="text-sky-400" /> : <Terminal className="text-purple-400" />}
-                      </div>
-                      <ExternalLink size={24} className="text-white/20 group-hover:text-white transition-colors" />
-                    </div>
-
-                    <div className="mt-12">
-                      <h3 className={`${index === 0 ? 'text-4xl md:text-6xl' : 'text-3xl'} font-bold text-white mb-6 tracking-tight`}>
+                  <div className="relative z-10 flex flex-1 flex-col p-6">
+                    <div className="flex-1">
+                      <h3 className="mb-4 text-2xl font-bold tracking-tight text-white">
                         {project.title}
                       </h3>
-                      <p className={`${index === 0 ? 'text-xl text-white/60 max-w-2xl' : 'text-base text-white/40 max-w-md'} mb-8 leading-relaxed`}>
+                      <p className="text-sm leading-relaxed text-white/52">
                         {project.description}
                       </p>
-                      <div className="flex flex-wrap gap-3">
-                        {project.tags.map(tag => (
-                          <span key={tag} className="text-xs font-semibold px-4 py-2 rounded-full bg-white/5 border border-white/5 text-white/40 group-hover:text-white/80 group-hover:border-white/20 transition-all">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                    </div>
+
+                    <div className="mt-8 flex flex-wrap gap-2">
+                      {project.tags.slice(0, 5).map(tag => (
+                        <span key={tag} className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-[11px] font-semibold text-white/55 transition-colors group-hover:border-white/15 group-hover:text-white/80">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-6 flex items-center justify-between border-t border-white/[0.08] pt-5">
+                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+                        {language === 'pt' ? 'Abrir detalhes' : 'Open details'}
+                      </span>
+                      <ChevronRight size={18} className="text-white/35 transition-transform group-hover:translate-x-1 group-hover:text-white/75" />
                     </div>
                   </div>
                 </motion.button>
