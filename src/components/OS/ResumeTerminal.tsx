@@ -31,7 +31,7 @@ const getTerminalData = (language: 'pt' | 'en') => {
               <div>
                 <p className="font-bold text-white text-xs">1. Muttley - Academic Event Management</p>
                 <p className="text-gray-400 text-[11px] mb-1">Backend with Spring Boot, Clean Architecture, PostgreSQL, MongoDB and Kafka.</p>
-                <a href="https://github.com/Bielnegri/Backend-Muttley" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Open repository</a>
+                <p className="text-gray-500 text-[11px]">Repository currently private.</p>
               </div>
               <div>
                 <p className="font-bold text-white text-xs">2. BR Validator - Brazilian Data Validation</p>
@@ -141,7 +141,7 @@ const getTerminalData = (language: 'pt' | 'en') => {
             <div>
               <p className="font-bold text-white text-xs">1. Muttley - Gerenciamento de Eventos Acadêmicos</p>
               <p className="text-gray-400 text-[11px] mb-1">Backend com Spring Boot, Clean Architecture, PostgreSQL, MongoDB e Kafka.</p>
-              <a href="https://github.com/Bielnegri/Backend-Muttley" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Acessar repositório</a>
+              <p className="text-gray-500 text-[11px]">Repositório privado no momento.</p>
             </div>
             <div>
               <p className="font-bold text-white text-xs">2. BR Validator - Validação de Dados Brasileiros</p>

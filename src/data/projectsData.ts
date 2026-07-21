@@ -91,7 +91,6 @@ export const projectsByLanguage = {
       techStack: ['Java', 'Spring Boot', 'Clean Architecture', 'PostgreSQL', 'MongoDB', 'Apache Kafka', 'Hibernate', 'Spring Data JPA'],
       architecture: 'Sistema modelado com Clean Architecture, separação clara de domínio, casos de uso e adaptadores. Os PDFs dos certificados não são persistidos no banco: o sistema armazena as informações do certificado e monta o documento sob demanda quando a requisição é feita. A arquitetura também divide responsabilidades em três microsserviços: envio de e-mail, worker para download do PDF e geração de QR Code.',
       challenges: 'Organizar domínios complexos sem acoplamento entre módulos, integrar frontend e backend, montar certificados sob demanda sem persistir binários desnecessários e estruturar microsserviços assíncronos mantendo clareza de manutenção.',
-      githubUrl: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop',
       status: 'Em Desenvolvimento',
       role: 'Participação no desenvolvimento backend da plataforma, com foco em organização arquitetural, persistência, integração entre serviços e validação do sistema na fase atual de testes.',
       highlights: [
@@ -101,9 +100,6 @@ export const projectsByLanguage = {
         'Fluxos assíncronos modelados para reduzir acoplamento entre etapas do sistema.',
         'Domínio acadêmico com gerenciamento de eventos, participantes, certificados digitais e medalhas.',
         'Projeto ainda não publicado, atualmente na etapa de execução dos testes, sem cobertura real consolidada.',
-      ],
-      proofLinks: [
-        { label: 'Repositório Backend - develop', url: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop' },
       ],
       metrics: [
         { label: 'Domínio', value: 'Eventos e Certificados', trend: 'neutral' },
@@ -176,7 +172,6 @@ export const projectsByLanguage = {
       techStack: ['Java', 'Spring Boot', 'Clean Architecture', 'PostgreSQL', 'MongoDB', 'Apache Kafka', 'Hibernate', 'Spring Data JPA'],
       architecture: 'System modeled with Clean Architecture and clear separation of domain, use cases and adapters. Certificate PDFs are not persisted in the database: the system stores certificate data and renders the document on demand when requested. Responsibilities are also split into three microservices: email delivery, PDF download worker and QR Code generation.',
       challenges: 'Organizing complex domains without coupling modules, integrating frontend and backend, rendering certificates on demand without persisting unnecessary binaries, and structuring asynchronous microservices while keeping the code maintainable.',
-      githubUrl: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop',
       status: 'In Development',
       role: 'Contributed to the backend development of the platform, focusing on architectural organization, persistence, service integration and system validation during the current test phase.',
       highlights: [
@@ -186,9 +181,6 @@ export const projectsByLanguage = {
         'Asynchronous flows modeled to reduce coupling between system steps.',
         'Academic domain covering events, participants, digital certificates and medal assignment.',
         'Project is not published yet and is currently in the test execution stage, without consolidated real coverage.',
-      ],
-      proofLinks: [
-        { label: 'Backend Repository - develop', url: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop' },
       ],
       metrics: [
         { label: 'Domain', value: 'Events and Certificates', trend: 'neutral' },

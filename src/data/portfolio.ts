@@ -75,7 +75,6 @@ export const portfolioByLanguage = {
         id: 'muttley',
         title: 'Projeto Muttley',
         description: 'Plataforma em desenvolvimento para gerenciamento de eventos acadêmicos com Clean Architecture, certificados PDF sob demanda e microsserviços para e-mail, download e QR Code.',
-        link: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop',
         tags: ['Java', 'Spring Boot', 'Clean Architecture', 'PostgreSQL', 'MongoDB', 'Apache Kafka'],
         gradient: 'from-purple-500/20 to-transparent',
         screenshots: [
@@ -216,7 +215,6 @@ export const portfolioByLanguage = {
         id: 'muttley',
         title: 'Muttley Project',
         description: 'Academic event management platform in development with Clean Architecture, on-demand certificate PDFs and microservices for email, download and QR Code generation.',
-        link: 'https://github.com/Bielnegri/Backend-Muttley/tree/develop',
         tags: ['Java', 'Spring Boot', 'Clean Architecture', 'PostgreSQL', 'MongoDB', 'Apache Kafka'],
         gradient: 'from-purple-500/20 to-transparent',
         screenshots: [
