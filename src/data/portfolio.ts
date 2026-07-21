@@ -97,6 +97,17 @@ export const portfolioByLanguage = {
           '/screenshots/br-validator/cep-phone-birthdate.png',
         ],
       },
+      {
+        id: 'nasa-data-explorer',
+        title: 'NASA Data Explorer',
+        description: 'Aplicação frontend em React para explorar APOD, imagens de rovers em Marte e galerias EPIC da Terra consumindo APIs públicas da NASA.',
+        link: 'https://github.com/andrelamego/nasa-data-explorer',
+        tags: ['React', 'Vite', 'Tailwind CSS', 'Axios', 'NASA APIs', 'GitHub Pages'],
+        gradient: 'from-sky-500/20 to-transparent',
+        screenshots: [
+          '/screenshots/nasa-data-explorer/space-bg.jpg',
+        ],
+      },
     ],
     education: {
       degree: 'Análise e Desenvolvimento de Sistemas',
@@ -235,6 +246,17 @@ export const portfolioByLanguage = {
           '/screenshots/br-validator/document-request-basics.png',
           '/screenshots/br-validator/email-password-rules.png',
           '/screenshots/br-validator/cep-phone-birthdate.png',
+        ],
+      },
+      {
+        id: 'nasa-data-explorer',
+        title: 'NASA Data Explorer',
+        description: 'React frontend for exploring APOD, Mars rover imagery and EPIC Earth galleries through public NASA APIs.',
+        link: 'https://github.com/andrelamego/nasa-data-explorer',
+        tags: ['React', 'Vite', 'Tailwind CSS', 'Axios', 'NASA APIs', 'GitHub Pages'],
+        gradient: 'from-sky-500/20 to-transparent',
+        screenshots: [
+          '/screenshots/nasa-data-explorer/space-bg.jpg',
         ],
       },
     ],

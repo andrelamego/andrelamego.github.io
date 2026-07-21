@@ -22,7 +22,7 @@ export interface ProjectData {
   name: string;
   shortDescription: string;
   longDescription: string;
-  icon: 'muttley' | 'validator';
+  icon: 'muttley' | 'validator' | 'nasa';
   screenshots: string[];
   techStack: string[];
   architecture: string;
@@ -155,6 +155,44 @@ export const projectsByLanguage = {
         { date: 'Distribuição', title: 'Publicação Pública', description: 'Empacotamento e publicação no Maven Central para reutilização em projetos Java.' },
       ],
     },
+    {
+      id: 'nasa-data-explorer',
+      name: 'NASA Data Explorer',
+      shortDescription: 'Frontend React para exploração de dados e imagens das APIs públicas da NASA.',
+      longDescription: 'Aplicação web publicada no GitHub Pages que consome APIs da NASA para apresentar imagens astronômicas, fotos de rovers em Marte e galerias EPIC da Terra em uma interface responsiva com tema espacial.',
+      icon: 'nasa',
+      screenshots: [
+        '/screenshots/nasa-data-explorer/space-bg.jpg',
+      ],
+      techStack: ['React', 'Vite', 'Tailwind CSS', 'React Router DOM', 'Axios', 'Lucide React', 'NASA APIs', 'GitHub Pages'],
+      architecture: 'Frontend em React organizado por páginas, componentes, hooks e serviços de API. A comunicação com APIs externas fica isolada em serviços dedicados para APOD, Mars Rover Photos, NASA Image and Video Library e EPIC, com uso de variáveis de ambiente para a chave da NASA.',
+      challenges: 'Lidar com APIs externas, limites de requisição, endpoints indisponíveis e diferentes formatos de mídia, mantendo estados de carregamento, estados vazios, fallback de fonte de dados e navegação responsiva.',
+      githubUrl: 'https://github.com/andrelamego/nasa-data-explorer',
+      demoUrl: 'https://andrelamego.github.io/nasa-data-explorer/',
+      status: 'Concluído',
+      role: 'Desenvolvimento frontend da aplicação, integração com APIs públicas da NASA, modelagem dos serviços de consumo, tratamento de estados de UI e publicação no GitHub Pages.',
+      highlights: [
+        'APOD com imagens e vídeos, explicações, links HD e adaptação visual conforme o tipo de mídia.',
+        'Galeria de Marte com filtros por rover, câmera, data/sol, paginação e cache local de respostas.',
+        'Fallback para a NASA Image and Video Library quando o endpoint de Mars Rover Photos está indisponível.',
+        'Galeria EPIC com imagens naturais/enhanced, navegação por data, timeline, autoplay e comparação com slider.',
+        'Deploy público no GitHub Pages, demonstrando entrega frontend além do foco backend.',
+      ],
+      proofLinks: [
+        { label: 'Aplicação publicada', url: 'https://andrelamego.github.io/nasa-data-explorer/' },
+      ],
+      metrics: [
+        { label: 'APIs', value: 'APOD, Mars, EPIC', trend: 'up' },
+        { label: 'Deploy', value: 'GitHub Pages', trend: 'up' },
+        { label: 'UX', value: 'Loading, cache, fallback', trend: 'neutral' },
+      ],
+      timeline: [
+        { date: 'Base', title: 'Interface React', description: 'Construção da aplicação com rotas, componentes reutilizáveis e layout responsivo com tema espacial.' },
+        { date: 'APIs', title: 'Integrações NASA', description: 'Consumo de APOD, Mars Rover Photos, NASA Image and Video Library e EPIC por serviços dedicados.' },
+        { date: 'Resiliência', title: 'Fallback e Cache', description: 'Tratamento de indisponibilidade, paginação, cache local e estados de carregamento ou vazio.' },
+        { date: 'Publicação', title: 'GitHub Pages', description: 'Deploy público da aplicação para acesso direto pelo navegador.' },
+      ],
+    },
   ],
   en: [
     {
@@ -234,6 +272,44 @@ export const projectsByLanguage = {
         { date: 'API', title: 'Validation Annotations', description: 'Creation of ready-to-use annotations for Brazilian documents and data.' },
         { date: 'Spring', title: 'Bean Validation Integration', description: 'Validator mapping for natural use in Spring Boot applications.' },
         { date: 'Distribution', title: 'Public Release', description: 'Packaging and publishing on Maven Central for reuse in Java projects.' },
+      ],
+    },
+    {
+      id: 'nasa-data-explorer',
+      name: 'NASA Data Explorer',
+      shortDescription: 'React frontend for exploring public NASA API data and imagery.',
+      longDescription: 'GitHub Pages-published web application that consumes NASA APIs to present astronomy images, Mars rover photos and EPIC Earth galleries through a responsive space-themed interface.',
+      icon: 'nasa',
+      screenshots: [
+        '/screenshots/nasa-data-explorer/space-bg.jpg',
+      ],
+      techStack: ['React', 'Vite', 'Tailwind CSS', 'React Router DOM', 'Axios', 'Lucide React', 'NASA APIs', 'GitHub Pages'],
+      architecture: 'React frontend organized into pages, components, hooks and API services. External API communication is isolated in dedicated services for APOD, Mars Rover Photos, NASA Image and Video Library and EPIC, with environment variables for the NASA API key.',
+      challenges: 'Handling external APIs, request limits, unavailable endpoints and different media formats while keeping loading states, empty states, data-source fallbacks and responsive navigation polished.',
+      githubUrl: 'https://github.com/andrelamego/nasa-data-explorer',
+      demoUrl: 'https://andrelamego.github.io/nasa-data-explorer/',
+      status: 'Completed',
+      role: 'Frontend development of the application, public NASA API integration, API service modeling, UI state handling and GitHub Pages deployment.',
+      highlights: [
+        'APOD support for images and videos, explanations, HD links and visual adaptation by media type.',
+        'Mars gallery with rover, camera, date/sol filters, pagination and local response caching.',
+        'Fallback to NASA Image and Video Library when the Mars Rover Photos endpoint is unavailable.',
+        'EPIC gallery with natural/enhanced imagery, date navigation, timeline, autoplay and split-slider comparison.',
+        'Public deployment on GitHub Pages, showing frontend delivery alongside the backend focus.',
+      ],
+      proofLinks: [
+        { label: 'Published application', url: 'https://andrelamego.github.io/nasa-data-explorer/' },
+      ],
+      metrics: [
+        { label: 'APIs', value: 'APOD, Mars, EPIC', trend: 'up' },
+        { label: 'Deploy', value: 'GitHub Pages', trend: 'up' },
+        { label: 'UX', value: 'Loading, cache, fallback', trend: 'neutral' },
+      ],
+      timeline: [
+        { date: 'Foundation', title: 'React Interface', description: 'Application built with routes, reusable components and a responsive space-themed layout.' },
+        { date: 'APIs', title: 'NASA Integrations', description: 'Consumption of APOD, Mars Rover Photos, NASA Image and Video Library and EPIC through dedicated services.' },
+        { date: 'Resilience', title: 'Fallback and Cache', description: 'Handling unavailable endpoints, pagination, local cache, loading states and empty states.' },
+        { date: 'Release', title: 'GitHub Pages', description: 'Public deployment for direct browser access.' },
       ],
     },
   ],

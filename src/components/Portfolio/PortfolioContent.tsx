@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { ArrowDown, BriefcaseBusiness, CheckCircle2, ChevronRight, Code2, Download, ExternalLink, GraduationCap, Languages, Terminal, Target } from 'lucide-react';
+import { ArrowDown, BriefcaseBusiness, CheckCircle2, ChevronRight, Code2, Download, ExternalLink, GraduationCap, Languages, Orbit, Terminal, Target } from 'lucide-react';
 import Lenis from 'lenis';
 import { UniverseBackground } from './UniverseBackground';
 import { getPortfolioData } from '../../data/portfolio';
@@ -400,7 +400,7 @@ export function PortfolioContent() {
                   <div className="relative z-10 flex-1 flex flex-col p-8 md:p-12">
                     <div className="flex justify-between items-start mb-auto">
                       <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                        {project.id === 'br-validator' ? <Code2 className="text-emerald-400" /> : <Terminal className="text-purple-400" />}
+                        {project.id === 'br-validator' ? <Code2 className="text-emerald-400" /> : project.id === 'nasa-data-explorer' ? <Orbit className="text-sky-400" /> : <Terminal className="text-purple-400" />}
                       </div>
                       <ExternalLink size={24} className="text-white/20 group-hover:text-white transition-colors" />
                     </div>

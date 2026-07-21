@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { projectLabels, type ProjectData } from '../../data/projectsData';
-import { ExternalLink, GitBranch, Layers, Target, Calendar, TrendingUp, TrendingDown, Minus, ChevronRight, ImageIcon, CheckCircle2, BookOpen, Code2, Award } from 'lucide-react';
+import { ExternalLink, GitBranch, Layers, Target, Calendar, TrendingUp, TrendingDown, Minus, ChevronRight, ImageIcon, CheckCircle2, BookOpen, Code2, Award, Orbit } from 'lucide-react';
 import { useLanguage } from '../../contexts/language';
 
 const TrendIcon: React.FC<{ trend?: 'up' | 'down' | 'neutral' }> = ({ trend }) => {
@@ -15,7 +15,9 @@ export const ProjectViewer: React.FC<{ project: ProjectData }> = ({ project }) =
   const [selectedImg, setSelectedImg] = useState<number | null>(null);
   const projectIcon = project.icon === 'validator'
     ? <Code2 size={24} className="text-emerald-600 dark:text-emerald-400" />
-    : <Award size={24} className="text-amber-600 dark:text-amber-400" />;
+    : project.icon === 'nasa'
+      ? <Orbit size={24} className="text-sky-600 dark:text-sky-400" />
+      : <Award size={24} className="text-amber-600 dark:text-amber-400" />;
 
   return (
     <div className="h-full w-full flex flex-col lg:flex-row bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0c0c0e] dark:to-[#111114] text-black dark:text-white overflow-hidden">

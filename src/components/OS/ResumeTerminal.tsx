@@ -38,6 +38,14 @@ const getTerminalData = (language: 'pt' | 'en') => {
                 <p className="text-gray-400 text-[11px] mb-1">Spring Boot starter library using Bean Validation.</p>
                 <a href="https://github.com/andrelamego/br-validator" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Open repository</a>
               </div>
+              <div>
+                <p className="font-bold text-white text-xs">3. NASA Data Explorer - Frontend API Integration</p>
+                <p className="text-gray-400 text-[11px] mb-1">React application consuming NASA APOD, Mars and EPIC APIs.</p>
+                <div className="flex flex-wrap gap-3">
+                  <a href="https://andrelamego.github.io/nasa-data-explorer/" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Open live demo</a>
+                  <a href="https://github.com/andrelamego/nasa-data-explorer" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Open repository</a>
+                </div>
+              </div>
             </div>
           </div>
         ),
@@ -147,6 +155,14 @@ const getTerminalData = (language: 'pt' | 'en') => {
               <p className="font-bold text-white text-xs">2. BR Validator - Validação de Dados Brasileiros</p>
               <p className="text-gray-400 text-[11px] mb-1">Biblioteca Starter Spring Boot para validação de dados usando Bean Validation.</p>
               <a href="https://github.com/andrelamego/br-validator" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Acessar repositório</a>
+            </div>
+            <div>
+              <p className="font-bold text-white text-xs">3. NASA Data Explorer - Integração Frontend com APIs</p>
+              <p className="text-gray-400 text-[11px] mb-1">Aplicação React consumindo APIs da NASA para APOD, Marte e EPIC.</p>
+              <div className="flex flex-wrap gap-3">
+                <a href="https://andrelamego.github.io/nasa-data-explorer/" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Abrir demo</a>
+                <a href="https://github.com/andrelamego/nasa-data-explorer" target="_blank" rel="noreferrer" className={`${linkClass} text-xs`}>Acessar repositório</a>
+              </div>
             </div>
           </div>
         </div>

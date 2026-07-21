@@ -1,6 +1,6 @@
 import React from 'react';
 import { getProjectsData, projectLabels } from '../../data/projectsData';
-import { Award, Code2, Folder, ExternalLink } from 'lucide-react';
+import { Award, Code2, Folder, ExternalLink, Orbit } from 'lucide-react';
 import { useLanguage } from '../../contexts/language';
 
 export const ProjectsApp: React.FC = () => {
@@ -12,8 +12,9 @@ export const ProjectsApp: React.FC = () => {
     window.dispatchEvent(new CustomEvent('open-os-window', { detail: `project-${id}` }));
   };
 
-  const getProjectIcon = (icon: 'muttley' | 'validator') => {
+  const getProjectIcon = (icon: 'muttley' | 'validator' | 'nasa') => {
     if (icon === 'validator') return <Code2 size={24} className="text-emerald-600 dark:text-emerald-400" />;
+    if (icon === 'nasa') return <Orbit size={24} className="text-sky-600 dark:text-sky-400" />;
     return <Award size={24} className="text-amber-600 dark:text-amber-400" />;
   };
 
